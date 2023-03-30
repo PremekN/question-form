@@ -1,0 +1,28 @@
+@use 'vuetify/settings';
+@use 'variables';
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    main {
+        margin: auto 0;
+    }
+}
+
+.v-selection-control-group--inline {
+    column-gap: 15px;
+    .v-selection-control--inline {
+        min-width: 110px;
+    }
+}
+header,
+footer {
+    padding: 15px;
+    min-height: variables.$header-height;
+}
+header {
+    border-bottom: 1px solid map-get(settings.$blue, 'darken-1');
+}
+footer {
+    border-top: 1px solid map-get(settings.$blue, 'darken-1');
+}
