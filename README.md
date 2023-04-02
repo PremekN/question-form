@@ -28,6 +28,12 @@ npm run dev
 npm run build
 ```
 
+### Preview build for Production
+
+```sh
+npm run preview
+```
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
