@@ -69,23 +69,7 @@ export default {
       const percentage =
         (this.questionsStore.answeredCorrectly / this.questionsStore.numberOfQuestions) * 100
       this.questionsStore.saveResults()
-      // const duration = this.questionsStore.endTime - this.questionsStore.startTime
 
-      // if (duration) {
-      //   if (!localStorage.previousResults) {
-      //     localStorage.previousResults = ''
-      //     this.questionsStore.storedResults.push({ percentage, duration })
-      //     localStorage.setItem('previousResults', JSON.stringify(this.questionsStore.storedResults))
-      //   } else {
-      //     let retrievedResults = localStorage.getItem('previousResults')
-
-      //     let parsedStorage = JSON.parse(retrievedResults)
-
-      //     this.questionsStore.storedResults = parsedStorage
-      //     this.questionsStore.storedResults.push({ percentage, duration })
-      //     localStorage.setItem('previousResults', JSON.stringify(this.questionsStore.storedResults))
-      //   }
-      // }
       return percentage
     },
     quizTime() {
