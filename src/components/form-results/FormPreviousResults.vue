@@ -43,7 +43,7 @@ export default {
   computed: {
     ...mapStores(useQuestionsStore),
     previousResults() {
-      return this.questionsStore.sortAndSortResults()
+      return this.questionsStore.sortAndSaveResults(this.questionsStore.previousResults)
     }
   },
 

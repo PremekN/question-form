@@ -10,7 +10,8 @@ export default defineStore('questions', {
       questionsStored: [],
       startTime: null,
       endTime: null,
-      storedResults: []
+      storedResults: [],
+      previousResults: [],
     }
   },
 
@@ -57,16 +58,42 @@ export default defineStore('questions', {
     getRandomInt(max) {
       return Math.floor(Math.random() * max)
     },
-    sortAndSortResults() {
-      let storedResults = this.storedResults.map((result) => result)
+    sortAndSaveResults(resultsToSort, save) {
+      let results = resultsToSort.map((result) => result)
 
-      let sorted = storedResults.sort((a, b) => a.duration - b.duration)
+      let sorted = results.sort((a, b) => a.duration - b.duration)
       sorted.sort((a, b) => b.percentage - a.percentage)
       if (sorted.length > 5) {
         sorted.pop()
       }
-      localStorage.setItem('previousResults', JSON.stringify(sorted))
+      if (save) {
+        localStorage.setItem('previousResults', JSON.stringify(sorted))
+      }
       return sorted
+    },
+    saveResults() {
+      const percentage =
+        (this.answeredCorrectly / this.numberOfQuestions) * 100
+      const duration = this.endTime - this.startTime
+
+      if (duration) {
+        if (!localStorage.previousResults) {
+          localStorage.previousResults = ''
+          this.storedResults.push({ percentage, duration })
+          // localStorage.setItem('previousResults', JSON.stringify(this.storedResults))
+          this.sortAndSaveResults(this.storedResults, true)
+        } else {
+          let retrievedResults = localStorage.getItem('previousResults')
+          let parsedStorage = JSON.parse(retrievedResults)
+
+          this.previousResults = parsedStorage.map((result) => result)
+
+          this.storedResults = parsedStorage.map((result) => result)
+          this.storedResults.push({ percentage, duration })
+          this.sortAndSaveResults(this.storedResults, true)
+          // localStorage.setItem('previousResults', JSON.stringify(this.storedResults))
+        }
+      }
     }
   }
 })
