@@ -25,7 +25,7 @@
         <tr>
           <td>Correct percentage</td>
           <td :class="{ 'text-red': percentSuccess < 50, 'text-green': percentSuccess >= 50 }">
-            {{ percentSuccess + '%' }}
+            {{ percentSuccess + ' %' }}
           </td>
         </tr>
         <tr>

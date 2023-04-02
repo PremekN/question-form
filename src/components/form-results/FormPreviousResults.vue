@@ -19,7 +19,7 @@
                 'text-red': previousResult.percentage < 50,
                 'text-green': previousResult.percentage >= 50
               }"
-              >{{ previousResult.percentage + '%' }}</span
+              >{{ previousResult.percentage + ' %' }}</span
             >
           </td>
           <td>{{ quizTime(previousResult.duration) }}</td>

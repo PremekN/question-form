@@ -1,6 +1,8 @@
 <template>
   <header>
-    <p><strong>Quiz Form</strong></p>
+    <router-link to="/" class="text-black text-decoration-none"
+      ><strong>Quiz Form</strong></router-link
+    >
   </header>
 </template>
 <script>
