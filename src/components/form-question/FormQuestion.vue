@@ -12,7 +12,6 @@
           <v-radio-group
             v-model="selectedAnswer"
             class="text-left"
-            @update="answerSelected($event)"
             :disabled="selectedAnswer !== ''"
           >
             <template v-for="answer in answers">
@@ -55,7 +54,6 @@ export default {
   data() {
     return {
       selectedAnswer: '',
-      answered: false,
       randomNumber: null
     }
   },
@@ -133,9 +131,7 @@ export default {
         this.$router.push({ path: '/' })
       }
     },
-    answerSelected(event) {
-      console.log(event)
-    },
+ 
     nextQuestion() {
       if (this.selectedAnswer === this.correctAnswer) {
         this.questionsStore.answeredCorrectly++
