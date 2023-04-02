@@ -80,7 +80,6 @@ export default defineStore('questions', {
         if (!localStorage.previousResults) {
           localStorage.previousResults = ''
           this.storedResults.push({ percentage, duration })
-          // localStorage.setItem('previousResults', JSON.stringify(this.storedResults))
           this.sortAndSaveResults(this.storedResults, true)
         } else {
           let retrievedResults = localStorage.getItem('previousResults')
@@ -91,7 +90,6 @@ export default defineStore('questions', {
           this.storedResults = parsedStorage.map((result) => result)
           this.storedResults.push({ percentage, duration })
           this.sortAndSaveResults(this.storedResults, true)
-          // localStorage.setItem('previousResults', JSON.stringify(this.storedResults))
         }
       }
     }
