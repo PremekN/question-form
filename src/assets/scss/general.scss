@@ -9,11 +9,18 @@
     }
 }
 
-.v-selection-control-group--inline {
-    column-gap: 15px;
-    .v-selection-control--inline {
-        min-width: 110px;
+.v-selection-control-group {
+    .v-selection-control {
+        &--disabled {
+            opacity: 1;
+            .v-selection-control__wrapper {
+                opacity: var(--v-disabled-opacity);
+            }
+        }
     }
+}
+.v-label {
+    opacity: 1;
 }
 header,
 footer {
